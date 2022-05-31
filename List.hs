@@ -20,7 +20,7 @@ last' xs = xs !! (length xs - 1)
 
 maybeLast :: [a] -> Maybe a
 maybeLast [] = Nothing
-maybeLast xs = Just (last' xs)  
+maybeLast xs = Just (last' xs)
 
 -- collection without last item
 init' :: [a] -> [a]
@@ -34,21 +34,29 @@ init' xs = take (length xs - 1) xs
 seqn :: Monad m => [m a] -> m [a]
 seqn [] = return []
 seqn (act : acts) = do
-    x  <- act
-    xs <- seqn acts
-    return (x : xs)
+  x <- act
+  xs <- seqn acts
+  return (x : xs)
 
 -- Order in high oder functions
 -- (1+) = \y = 1 + y
 -- (*2) = \x -> x * 2
 
--- divideByOne [1..3] 
+-- divideByOne [1..3]
 -- [1.0,2.0,3.0]
 divideByOne :: [Double] -> [Double]
-divideByOne =  map (/1)
+divideByOne = map (/ 1)
 
 -- oneDivideByN [1..3]
--- [1.0,0.5,0.3333333333333333] 
+-- [1.0,0.5,0.3333333333333333]
 oneDivideByN :: [Double] -> [Double]
-oneDivideByN = map (1/)
+oneDivideByN = map (1 /)
 
+-- splitAt' 3 [1, 2, 3, 4]
+-- ([1,2,3],[4])
+splitAt' :: Int -> [a] -> ([a], [a])
+splitAt' i xs = (take i xs, drop i xs)
+
+concat' :: [[a]] -> [a]
+concat' xss = [x | xs <- xss, x <- xs]
+-- concat' = foldr (++) []
