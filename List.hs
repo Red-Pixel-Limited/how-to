@@ -1,4 +1,5 @@
 import Data.Maybe
+import Data.Char (isAsciiLower)
 
 safetail :: [a] -> [a]
 safetail [] = []
@@ -16,7 +17,8 @@ maybeThird _ = Nothing
 last' :: [a] -> a
 last' xs = xs !! (length xs - 1)
 
--- last' = head . reverse
+last'' :: [a] -> a
+last'' = head . reverse
 
 maybeLast :: [a] -> Maybe a
 maybeLast [] = Nothing
@@ -59,4 +61,43 @@ splitAt' i xs = (take i xs, drop i xs)
 
 concat' :: [[a]] -> [a]
 concat' xss = [x | xs <- xss, x <- xs]
--- concat' = foldr (++) []
+
+concat'' :: [[a]] -> [a]
+concat'' = foldr (++) []
+
+firsts :: [(a, b)] -> [a]
+firsts xs = [x | (x, _) <- xs]
+
+fsts :: [(a, b)] -> [a]
+fsts = map fst
+
+length' :: [a] -> Int
+length' xs = sum [1 | _ <- xs]
+
+length'' :: [a] -> Int
+length'' = sum . map (const 1)
+
+head' :: [a] -> Maybe a
+head' [] = Nothing
+head' (x : _) = Just x
+
+tail' :: [a] -> Maybe [a]
+tail' [] = Nothing 
+tail' (_ : xs) = Just xs
+
+-- find 'b' [('a', 1), ('b', 2), ('c', 3), ('b', 4)]
+-- [2,4]
+find :: Eq a => a -> [(a, b)] -> [b]
+find k t = [v | (k', v) <- t, k == k']
+
+-- Gets character at position
+-- charAt 2 "abc" 
+-- 'c'
+charAt :: Int -> [a] -> a
+charAt index s = s !! index 
+
+-- counts lower charcters 
+-- lowers "aAb"
+-- 2
+lowers :: String -> Int
+lowers s = length [c | c <- s, isAsciiLower c]
