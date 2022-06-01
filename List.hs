@@ -5,6 +5,14 @@ safetail :: [a] -> [a]
 safetail [] = []
 safetail (_ : xs) = xs
 
+head' :: [a] -> Maybe a
+head' [] = Nothing
+head' (x : _) = Just x
+
+tail' :: [a] -> Maybe [a]
+tail' [] = Nothing 
+tail' (_ : xs) = Just xs
+
 maybeThird :: [a] -> Maybe a
 maybeThird (_ : _ : x : _) = Just x
 maybeThird _ = Nothing
@@ -76,14 +84,6 @@ length' xs = sum [1 | _ <- xs]
 
 length'' :: [a] -> Int
 length'' = sum . map (const 1)
-
-head' :: [a] -> Maybe a
-head' [] = Nothing
-head' (x : _) = Just x
-
-tail' :: [a] -> Maybe [a]
-tail' [] = Nothing 
-tail' (_ : xs) = Just xs
 
 -- find 'b' [('a', 1), ('b', 2), ('c', 3), ('b', 4)]
 -- [2,4]
