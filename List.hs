@@ -1,5 +1,5 @@
-import Data.Maybe
 import Data.Char (isAsciiLower)
+import Data.Maybe
 
 safetail :: [a] -> [a]
 safetail [] = []
@@ -82,7 +82,7 @@ head' [] = Nothing
 head' (x : _) = Just x
 
 tail' :: [a] -> Maybe [a]
-tail' [] = Nothing 
+tail' [] = Nothing
 tail' (_ : xs) = Just xs
 
 -- find 'b' [('a', 1), ('b', 2), ('c', 3), ('b', 4)]
@@ -91,12 +91,12 @@ find :: Eq a => a -> [(a, b)] -> [b]
 find k t = [v | (k', v) <- t, k == k']
 
 -- Gets character at position
--- charAt 2 "abc" 
+-- charAt 2 "abc"
 -- 'c'
 charAt :: Int -> [a] -> a
-charAt index s = s !! index 
+charAt index s = s !! index
 
--- counts lower charcters 
+-- counts lower charcters
 -- lowers "aAb"
 -- 2
 lowers :: String -> Int
