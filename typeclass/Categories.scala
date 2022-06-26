@@ -22,4 +22,8 @@ trait Applicative[F[_]] extends Functor[F] {
   def map[A, B](fa: F[A])(f: A => B): F[B] = ap(pure(f))(fa)
 }
 
+// Monad
+trait Monad[F[_]] extends Applicative[F] {
+  def flatMap[A, B](fa: F[B])(f: A => F[B]): F[B]
+}
 
