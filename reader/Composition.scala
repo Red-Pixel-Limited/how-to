@@ -2,7 +2,7 @@ package typeclass.reader
 
 import cats.data.Reader
 
-object Ordering {
+object Composition {
 
   val upper = Reader((text: String) => text.toUpperCase)
   val greet = Reader((name: String) => s"Hello $name")
