@@ -7,4 +7,5 @@ object Curried {
   val f3: (Int, Int) => String = (a, b) => f2.compose(f1.curried(a))(b)
   val f4: (Int, Int) => String = (a, b) => f1.curried(a).andThen(f2)(b)
 
+  // f3(3, 5) = "8"
 }
