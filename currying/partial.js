@@ -1,5 +1,6 @@
 /**
- *  node partial.js
+ * Run:
+ * node partial.js
  */
 
 function add(a, b) {
