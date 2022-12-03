@@ -27,5 +27,9 @@ class ValidationSpec extends FreeSpec with Matchers with TypeCheckedTripleEquals
     "create a user when there are no errors" in {
       Validator.createUser(form) should ===(Success(user))
     }
+
+    "create a list of the users when there are no errors" in {
+      Validator.createUsers(List(form)) should ===(Success(List(user)))
+    }
   }
 }
