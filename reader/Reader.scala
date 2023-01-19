@@ -8,7 +8,7 @@ case class Reader[A, B](run: A => B) {
   def flatMap[C](f: B => Reader[A, C]): Reader[A, C] = 
     Reader(a => map(f)(a)(a))
 
-  // map(f)       -- Reader[A, Reader[A, C]
+  // map(f)       -- Reader[A, Reader[A, C]]
   // map(f)(a)    -- Reader[A, C]
   // map(f)(a)(a) -- Reader[C]
 }

@@ -1,3 +1,4 @@
+.bsp
 .lsp
 .clj-kondo
 .DS_Store
@@ -6,3 +7,5 @@
 .history
 .metals
 *.o
+project
+target
