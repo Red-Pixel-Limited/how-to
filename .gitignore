@@ -1,5 +1,6 @@
 .bsp
 .lsp
+.bloop
 .clj-kondo
 .DS_Store
 .idea

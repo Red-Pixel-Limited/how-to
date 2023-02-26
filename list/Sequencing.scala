@@ -5,5 +5,5 @@ object Sequencing {
   def parallel: Future[Int] =
     Future.sequence(
       Future.successful(1) :: Future.successful(4) :: Nil
-    ).map(_.sum)   
+    ).map(_.sum)
 }
