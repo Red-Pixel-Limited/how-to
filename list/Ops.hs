@@ -1,4 +1,3 @@
-import Data.Char (isAsciiLower)
 import Data.Maybe
 
 -- head --
@@ -112,17 +111,3 @@ length' xs = sum [1 | _ <- xs]
 -- length' [] = 0
 -- length' (_ : xs) = 1 + length' xs
 
-
-
--- find 'b' [('a', 1), ('b', 2), ('c', 3), ('b', 4)]
--- [2,4]
-find :: Eq a => a -> [(a, b)] -> [b]
-find k t = [v | (k', v) <- t, k == k']
-
-
-
--- counts lower charcters
--- lowers "aAb"
--- 2
-lowers :: String -> Int
-lowers s = length [c | c <- s, isAsciiLower c]
