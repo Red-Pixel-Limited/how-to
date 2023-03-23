@@ -7,3 +7,4 @@ lift xs = do
 printEven :: (Integral a, Show a) => [a] -> IO ()
 printEven numbers = do
   filterM (pure . even) numbers >>= print
+
