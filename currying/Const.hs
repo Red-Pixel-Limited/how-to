@@ -1,12 +1,5 @@
--- Execute twice
-twice :: (a -> a) -> a -> a
-twice f x = f (f x)
+-- In Haskell, functions are curried by default.
 
--- Apply a function
-apply :: (a -> b) -> a -> b
-apply f = f
-
--- const
 const' :: a -> b -> a
 const' x _ = x
 
