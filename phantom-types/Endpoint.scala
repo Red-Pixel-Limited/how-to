@@ -2,7 +2,7 @@ import EndpointBuilder._
 
 sealed abstract case class Endpoint(url: String, port: Int)
 
-final case class EndpointBuilder[P] private (
+case class EndpointBuilder[P] private (
     url: Option[String],
     port: Option[Int]
 ):
